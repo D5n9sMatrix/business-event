@@ -1,0 +1,21 @@
+/*
+Prior to the June 2020 refresh
+The following content is changed.
+• Information about client certificates is added to Chapter 30, “Configuring the z/OSMF server certificate
+and key ring,” on page 191.
+• Information was added to ensure that users have the appropriate access that is needed to run the
+Deployment and Export JCL that Software Management generates. For more information, see “Resource
+authorizations for the Software Deployment service” on page 358.
+*/
+JCL = 'context'
+push external JCL
+queue JCL select JCL
+do
+   pull JCL
+select
+   when JCL = 'context' then
+        upper call digits
+   otherwise /* cheese  */ nop
+   end
+end   
+
